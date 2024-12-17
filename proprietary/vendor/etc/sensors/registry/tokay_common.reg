@@ -203,6 +203,7 @@
 
 +/dev/tmd3733/0/panel-b/als
   # Display leakage golden cal value.
+  leakage_per_device_cal_enable=1
   leakage_at_dbv=49.4932 3628 8.39703 637.0
   # Prox delay itime table in microsecond.
   # Display HS mode.
@@ -239,11 +240,10 @@
   #    1: Natural Log: c0 + c1*ln(L + c2)
   histo_luma_eq0=0 0 0 0e0
   histo_luma_eq1=1 4096 0 6.06737066e-02 1.17612775e-02 -4.95300514e-05 6.87088684e-08
-  histo_dbv_eq0=0 0 0 0e0
-  histo_dbv_eq1=1 1180 0 4.59360090e+00 1.61030433e-02 -1.33832782e-05 5.82293291e-09
-  histo_dbv_eq2=1181 3330 0 -4.62528901e+01 8.35392546e-02 -4.27343282e-05 7.80722775e-09
-  histo_dbv_eq3=3331 3628 0 52.0
-  histo_dbv_eq4=3629 4096 0 50
+  histo_dbv_eq0=0 1 0 0e0
+  histo_dbv_eq1=1 1180 0 4.20436044e-01 1.47385460e-03 -1.22492412e-06 5.32952455e-10
+  histo_dbv_eq2=1181 3628 0 -9.36742416e+00 3.32296767e-02 -4.69024589e-05 3.38368101e-08 -1.31005707e-11 2.58611209e-15 -2.03691766e-19
+  histo_dbv_eq3=3629 4096 0 51
 
   # The maximum brightness (DBV) value up to which histogram is active.
   # This value should match one of the itime_table_brightness values.
@@ -322,33 +322,33 @@
   gesture_type=3
   intr_id=14
   intr_type=1
-  panel_height_pixel=2424
+  panel_height_pixel=24240
   panel_height_mm=146
-  single_tap_min_x=91
-  single_tap_max_x=989
-  single_tap_min_y=179
-  single_tap_max_y=2245
+  single_tap_min_x=910
+  single_tap_max_x=9890
+  single_tap_min_y=1790
+  single_tap_max_y=22450
   single_tap_min_frame_count=3
   single_tap_max_frame_count=31
-  single_press_motion_tolerance=255
+  single_press_motion_tolerance=2550
   single_press_max_touch_size=40
-  long_press_min_x=440
-  long_press_max_x=640
-  long_press_min_y=1655
-  long_press_max_y=1855
+  long_press_min_x=4400
+  long_press_max_x=6400
+  long_press_min_y=16550
+  long_press_max_y=18550
   long_press_min_frame_count=1
-  long_press_motion_tolerance_inner=255
+  long_press_motion_tolerance_inner=2550
   long_press_max_touch_size=40
-  long_press_marginal_min_x=399
-  long_press_marginal_max_x=681
-  long_press_marginal_min_y=1614
-  long_press_marginal_max_y=1896
+  long_press_marginal_min_x=3990
+  long_press_marginal_max_x=6810
+  long_press_marginal_min_y=16140
+  long_press_marginal_max_y=18960
   long_press_monitor_channel_min_tx=6
   long_press_monitor_channel_max_tx=9
   long_press_monitor_channel_min_rx=24
   long_press_monitor_channel_max_rx=27
   long_press_min_node_count=8
-  long_press_motion_tolerance_outer=528
+  long_press_motion_tolerance_outer=5280
   send_lptw_to_kernel=1
 
 # TBN
@@ -373,6 +373,17 @@
   als_startup_filter=0 0 0
   # float[3]={zeroPoint, onePoint, endPoint}, set to 0 to disable
   rear_lux_downscaling=0 0 0
+  # Select fusion algorithm.
+  # 0: Classic (old, using lower-lux scaling).
+  # 1: Simple (new, avoids issues of classic)
+  fusion_algo_select=1
+  # Configuration of simple fusion algorithm.
+  # float[3]={N, D, B}
+  #   [N]exit-night: sets the lux threshold below which is considered night.
+  #   [D]enter-day: sets the lux threshold above which is considered day.
+  #     i.e., lux <= N is night, N < lux < D is transition, lux >= D is day.
+  #   [B]very-low-light-boost: Additional boost factor, needs to be > 1.
+  simple_fusion_algo_config=20 40 1.25
 
 +/vsc/fusion_prox_voice_call
   # 0: Normal (fusion of Optical Prox with other sensors)
