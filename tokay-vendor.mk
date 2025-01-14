@@ -468,8 +468,10 @@ PRODUCT_COPY_FILES += \
     vendor/google/tokay/proprietary/system_ext/etc/permissions/oemrilhook.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/oemrilhook.xml \
     vendor/google/tokay/proprietary/system_ext/etc/permissions/privapp-permissions-google-se-lineage.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-google-se-lineage.xml \
     vendor/google/tokay/proprietary/system_ext/etc/permissions/privapp-permissions-satellite.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-satellite.xml \
+    vendor/google/tokay/proprietary/system_ext/etc/permissions/privapp-permlist_com.google.pixel.iwlan.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permlist_com.google.pixel.iwlan.xml \
     vendor/google/tokay/proprietary/system_ext/etc/permissions/vzw_mvs_permissions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/vzw_mvs_permissions.xml \
     vendor/google/tokay/proprietary/system_ext/etc/public.libraries-google.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-google.txt \
+    vendor/google/tokay/proprietary/system_ext/etc/sysconfig/sysconfig_com.google.pixel.iwlan.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/sysconfig_com.google.pixel.iwlan.xml \
     vendor/google/tokay/proprietary/system_ext/priv-app/EuiccSupportPixel-P23/Felica_Tag_66_Changer.apdu:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel-P23/Felica_Tag_66_Changer.apdu \
     vendor/google/tokay/proprietary/system_ext/priv-app/EuiccSupportPixel-P23/esim-full-v1.img:$(TARGET_COPY_OUT_SYSTEM_EXT)/priv-app/EuiccSupportPixel-P23/esim-full-v1.img
 
@@ -515,6 +517,7 @@ PRODUCT_PACKAGES += \
     OemRilService \
     PixelDisplayService \
     PixelImsMediaService \
+    PixelIwlan \
     PixelQualifiedNetworksService \
     PixelSatelliteService \
     RilConfigService \
